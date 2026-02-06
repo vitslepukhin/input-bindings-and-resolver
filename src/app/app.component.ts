@@ -46,11 +46,18 @@ import { LoaderComponent } from './loader.component';
           3. Static Route Data
         </a>
         <a
-          routerLink="/resolver-data/123"
+          [routerLink]="['/resolver-data', '123']"
           routerLinkActive="active-link"
           class="nav-link"
         >
           4. Resolver Data
+        </a>
+        <a
+          routerLink="/advantages"
+          routerLinkActive="active-link"
+          class="nav-link"
+        >
+          5. Преимущества подхода
         </a>
       </nav>
 

@@ -4,6 +4,7 @@ import { QueryParamsComponent } from './query-params.component';
 import { PathParamsComponent } from './path-params.component';
 import { StaticDataComponent } from './static-data.component';
 import { ResolverDataComponent } from './resolver-data.component';
+import { AdvantagesComponent } from './advantages.component';
 import { userResolver } from './user.resolver';
 
 export const routes: Routes = [
@@ -33,5 +34,9 @@ export const routes: Routes = [
     path: 'resolver-data/:userId',
     component: ResolverDataComponent,
     resolve: { user: userResolver },
+  },
+  {
+    path: 'advantages',
+    component: AdvantagesComponent,
   },
 ];
