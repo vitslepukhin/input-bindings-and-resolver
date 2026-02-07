@@ -1,4 +1,3 @@
-import { inject } from '@angular/core';
 import { ResolveFn } from '@angular/router';
 import { delay, of } from 'rxjs';
 

@@ -73,7 +73,7 @@ import { LoaderComponent } from './loader.component';
 export class AppComponent {
   private readonly router = inject(Router);
   private readonly outlet = viewChild<RouterOutlet>(RouterOutlet);
-  protected isLoading = computed(() => {
+  protected readonly isLoading = computed(() => {
     const currentNavigation = this.router.currentNavigation();
     if (currentNavigation) {
       this.outlet()?.deactivate();
