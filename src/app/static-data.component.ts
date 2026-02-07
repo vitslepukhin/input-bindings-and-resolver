@@ -1,8 +1,9 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-static-data',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [JsonPipe],
   template: `
     <div class="demo-card">
@@ -48,5 +49,5 @@ export class StaticDataComponent {
   readonly title = input<string | undefined>();
   readonly description = input<string | undefined>();
   readonly roles = input<string[] | undefined>();
-  readonly features = input<any>();
+  readonly features = input<{ canEdit: boolean; canDelete: boolean } | undefined>();
 }

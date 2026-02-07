@@ -1,4 +1,4 @@
-import { Component, computed, inject, viewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, viewChild } from '@angular/core';
 import {
   Router,
   RouterLink,
@@ -9,13 +9,13 @@ import { LoaderComponent } from './loader.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, LoaderComponent],
   template: `
     <div class="container">
       <h1>Angular withComponentInputBinding Demo</h1>
 
-      <nav class="nav-menu">
+      <nav class="nav-menu" aria-label="Основное меню">
         <a
           routerLink="/"
           routerLinkActive="active-link"

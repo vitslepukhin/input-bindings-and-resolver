@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-query-params',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="demo-card">
       <h2>1. Query Parameters Demo</h2>

@@ -1,10 +1,11 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-loader',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="loader-container">
-      <div class="spinner"></div>
+    <div class="loader-container" role="status" aria-live="polite" [attr.aria-busy]="true">
+      <div class="spinner" aria-hidden="true"></div>
       <p class="loader-text">{{ message() }}</p>
     </div>
   `,

@@ -1,7 +1,8 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 @Component({
   selector: 'app-path-params',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="demo-card">
       <h2>2. Path & Matrix Parameters Demo</h2>

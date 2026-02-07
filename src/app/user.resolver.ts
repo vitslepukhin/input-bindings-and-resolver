@@ -11,7 +11,7 @@ export interface UserData {
 }
 
 export const userResolver: ResolveFn<UserData> = (route) => {
-  const userId = route.paramMap.get('userId');
+  const userId = route.paramMap.get('userId') ?? '0';
 
   const userData: UserData = {
     id: Number(userId),

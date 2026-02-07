@@ -1,28 +1,26 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home.component';
-import { QueryParamsComponent } from './query-params.component';
-import { PathParamsComponent } from './path-params.component';
-import { StaticDataComponent } from './static-data.component';
-import { ResolverDataComponent } from './resolver-data.component';
-import { AdvantagesComponent } from './advantages.component';
 import { userResolver } from './user.resolver';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomeComponent,
+    loadComponent: () =>
+      import('./home.component').then((m) => m.HomeComponent),
   },
   {
     path: 'query-params',
-    component: QueryParamsComponent,
+    loadComponent: () =>
+      import('./query-params.component').then((m) => m.QueryParamsComponent),
   },
   {
     path: 'path-params/:id',
-    component: PathParamsComponent,
+    loadComponent: () =>
+      import('./path-params.component').then((m) => m.PathParamsComponent),
   },
   {
     path: 'static-data',
-    component: StaticDataComponent,
+    loadComponent: () =>
+      import('./static-data.component').then((m) => m.StaticDataComponent),
     data: {
       title: 'Admin Panel',
       description: 'Управление системой',
@@ -32,11 +30,13 @@ export const routes: Routes = [
   },
   {
     path: 'resolver-data/:userId',
-    component: ResolverDataComponent,
+    loadComponent: () =>
+      import('./resolver-data.component').then((m) => m.ResolverDataComponent),
     resolve: { user: userResolver },
   },
   {
     path: 'advantages',
-    component: AdvantagesComponent,
+    loadComponent: () =>
+      import('./advantages.component').then((m) => m.AdvantagesComponent),
   },
 ];

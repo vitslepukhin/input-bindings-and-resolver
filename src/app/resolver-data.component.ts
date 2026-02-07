@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import { UserData } from './user.resolver';
 
@@ -15,6 +15,7 @@ const ROUTER =
 
 @Component({
   selector: 'app-resolver-data',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [JsonPipe],
   template: `
     <div class="demo-card">
@@ -81,7 +82,7 @@ const ROUTER =
         <h3>Данные пользователя из resolver:</h3>
         <div class="param-item">
           <span class="param-label">User:</span>
-          <span class="param-value" style="white-space: pre-line;">{{ user() | json }}</span>
+          <span class="param-value" [style.white-space]="'pre-line'">{{ user() | json }}</span>
         </div>
       </div>
 
