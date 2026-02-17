@@ -8,7 +8,7 @@ import {
 import { LoaderComponent } from './loader.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-main-layout',
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, LoaderComponent],
   template: `
@@ -52,13 +52,6 @@ import { LoaderComponent } from './loader.component';
         >
           4. Resolver Data
         </a>
-        <a
-          routerLink="/params-inheritance-strategy/1"
-          routerLinkActive="active-link"
-          class="nav-link"
-        >
-          5. Params Inheritance Strategy
-        </a>
       </nav>
 
       <div class="content">
@@ -70,11 +63,13 @@ import { LoaderComponent } from './loader.component';
     </div>
   `,
 })
-export class AppComponent {
+export class MainLayoutComponent {
   private readonly router = inject(Router);
   private readonly outlet = viewChild<RouterOutlet>(RouterOutlet);
   protected isLoading = computed(() => {
     const currentNavigation = this.router.currentNavigation();
+    console.log(currentNavigation);
+    
     if (currentNavigation) {
       this.outlet()?.deactivate();
     }

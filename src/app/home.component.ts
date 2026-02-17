@@ -166,6 +166,13 @@ import { Component } from '@angular/core';
               >Angular: Route data resolvers</a
             >.
           </li>
+          <li class="list-sep">
+            <strong>Params Inheritance Strategy</strong> — при
+            <code>paramsInheritanceStrategy: 'always'</code> дочерние маршруты
+            получают params и data родительского маршрута через те же механизмы
+            привязки (в т.ч. <code>input()</code>). Демо с вложенными маршрутами
+            показывает наследование в дочернем компоненте.
+          </li>
         </ul>
       </div>
 

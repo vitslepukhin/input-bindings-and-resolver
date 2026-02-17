@@ -4,7 +4,10 @@ import { QueryParamsComponent } from './query-params.component';
 import { PathParamsComponent } from './path-params.component';
 import { StaticDataComponent } from './static-data.component';
 import { ResolverDataComponent } from './resolver-data.component';
+import { ParamsInheritanceStrategyParentComponent } from './params-inheritance-strategy-parent.component';
+import { ParamsInheritanceStrategyChildComponent } from './params-inheritance-strategy-child.component';
 import { userResolver } from './user.resolver';
+import { parentRouteResolver } from './parent-route.resolver';
 
 export const routes: Routes = [
   {
@@ -33,5 +36,21 @@ export const routes: Routes = [
     path: 'resolver-data/:userId',
     component: ResolverDataComponent,
     resolve: { user: userResolver },
+  },
+  {
+    path: 'params-inheritance-strategy/:parentId',
+    component: ParamsInheritanceStrategyParentComponent,
+    data: {
+      parentData: 'Данные родительского маршрута (static data)',
+    },
+    resolve: {
+      parentResolvedData: parentRouteResolver,
+    },
+    children: [
+      {
+        path: 'child/:childId',
+        component: ParamsInheritanceStrategyChildComponent,
+      },
+    ],
   },
 ];
